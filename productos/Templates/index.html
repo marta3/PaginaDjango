@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <!-- header-section-ends -->
+    <!-- content-section-starts -->
+    <div class="content">
+        <div class="ordering-section" id="Order">
+            <div class="container">
+                <div class="ordering-section-head text-center wow bounceInRight" data-wow-delay="0.4s">
+                    <h3>Realiza tu pedido de forma sencilla</h3>
+                    <div class="dotted-line">
+                        <h4>Solo 4 pasos a seguir. </h4>
+                    </div>
+                </div>
+                <div class="ordering-section-grids">
+                    <div class="col-md-3 ordering-section-grid">
+                        <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s">
+                            <i class="one"></i><br>
+                            <i class="three-icon"></i>
+                            <p> <span>Regístrate</span></p>
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ordering-section-grid">
+                        <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s">
+                            <i class="two"></i><br>
+                            <i class="one-icon"></i>
+                            <p>Elige  <span>tu/s producto/s</span></p>
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ordering-section-grid">
+                        <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s">
+                            <i class="three"></i><br>
+                            <i class="two-icon"></i>
+                            <p>Haz   <span> tu pedido</span></p>
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ordering-section-grid">
+                        <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s">
+                            <i class="four"></i><br>
+                            <i class="four-icon"></i>
+                            <p>Disfruta <span> la comida</span></p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popular-restaurents" id="Popular-Restaurants">
+            <div class="container">
+                <div class="col-md-12 top-cuisines">
+                    <div class="top-cuisine-head">
+                        <h3>Top Pedidos</h3>
+                    </div>
+                    <div class="top-cuisine-grids">
+                            {% if productos %}
+	                        {% for p in productos %}
+                            <div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+                            <a href=""><img src="{{ p.foto.url }}" class="img-responsive" style="width:170px;height:137px;" /> </a>
+                            <label style="width:170px;">{{ p.nombre }}</label>
+                            </div>
+                            {% endfor %}
+                                <div class="clearfix"></div>
+                            {% else %}
+
+                        <div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+                            <a href=""><img src="../static/images/noproducto.jpg" class="img-responsive" style="width:170px;height:137px;" /> </a>
+                            <label>Vacío</label>
+                        </div>
+                        <div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+                            <a href=""><img src="../static/images/noproducto.jpg" class="img-responsive" style="width:170px;height:137px;" /> </a>
+                            <label>Vacío</label>
+                        </div>
+                        <div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+                            <a href=""><img src="../static/images/noproducto.jpg" class="img-responsive" style="width:170px;height:137px;" /> </a>
+                            <label>Vacío</label>
+                        </div>
+                        <div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+                            <a href=""><img src="../static/images/noproducto.jpg" class="img-responsive" style="width:170px;height:137px;" /> </a>
+                            <label>Vacío</label>
+                        </div>
+                        <div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+                            <a href=""><img src="../static/images/noproducto.jpg" class="img-responsive" style="width:170px;height:137px;" /> </a>
+                            <label>Vacío</label>
+                        </div>
+                        <div class="top-cuisine-grid wow bounceIn" data-wow-delay="0.4s">
+                            <a href=""><img src="../static/images/noproducto.jpg" class="img-responsive" style="width:170px;height:137px;" /> </a>
+                            <label>Vacío</label>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+</div>
+{% endblock %}

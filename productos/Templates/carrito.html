@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="cart-items">
+	<div class="container">
+		<div class="col-md-2">
+		<a href="productos"><input type="submit" name="btnvolver" value="<---Seguir comprando" class="btn btn-success"></a>
+
+		</div>
+		<div class="col-md-2">
+		</div>
+        {% if productos %}
+		<div class="col-md-3">
+		<a onclick="aviso()" href="pedir"><input type="submit" name="btnvolver" value="Realizar pedido" class="btn btn-success"></a>
+		</div>
+	</div>
+	<br>
+	<div class="container">
+		<h1>Mi Carrito</h1>
+
+	    {% for p in productos %}
+            <div class="Popular-Restaurants-content">
+                <div class="Popular-Restaurants-grids">
+                    <div class="container">
+                        <div class="Popular-Restaurants-grid wow fadeInRight" data-wow-delay="0.4s">
+
+                            <div id="parent" class="col-md-3 restaurent-title">
+                                <div class="logo-title">
+                                    <h4>{{ p.nombre }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-3 restaurent-title">
+                                <h5>{{ p.descripcion }}</h5>
+                            </div>
+                            <div class="col-md-3 buy">
+                                <span id="{{p.id}}" >{{p.precio}} </span>
+                                <a id="{{p.id}}" onclick="cantidades(this.id)" class="morebtn hvr-rectangle-in" href="delete/{{p.id}}">Eliminar pedido</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    {% endfor %}
+	{% else %}
+            <br><br><br><br>
+	 <div class="alert alert-danger">
+	 <p>No hay ningún item en este momento</p>
+	 </div>
+	{% endif %}
+	</div>
+</div>
+
+{% endblock %}

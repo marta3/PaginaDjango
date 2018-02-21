@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Login</div>
+            <div class="centrado">
+                <div class="panel-body">
+                    <form class="form-horizontal" method="POST" action="">
+                        {% csrf_token %}
+                            <label for="username" class="col-md-4 control-label">Username:{{ form.username }}</label><br><br><br>
+                            <label for="password" class="col-md-4 control-label"> Password: <td>{{ form.password }}</td></label><br><br><br><br>
+                        <button style="margin-left: 5%;" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

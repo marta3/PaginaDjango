@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<body onload="setInterval('oferta()',1000)">
+	<!-- header-section-ends -->
+	<!-- content-section-starts -->
+<div class="col-md-12">
+	<div class="col-md-6 buy">
+       <a href="{{'Comidas'}}"><input type="submit" name="btncomidas" value="Comidas" class="btn btn-warning"/></a>
+       <a href="{{'Postre'}}"> <input type="submit" name="btnpostres" value="Postres" class="btn btn-warning"/></a>
+       <a href="{{'Bebidas'}}"> <input type="submit" name="btnbebidas" value="Bebidas" class="btn btn-warning"/></a>
+       <a href="productos"> <input type="submit" name="btntodo" value="Todo" class="btn btn-warning"/></a>
+	</div>
+
+
+</div>
+
+    <br>
+    <br>
+    <br>
+    {% if productos %}
+        <div onload="oferta()" id="oferta" class="ofertas"></div>
+	{% for p in productos %}
+
+	<div class="Popular-Restaurants-content">
+		<div class="Popular-Restaurants-grids">
+			<div class="container">
+				<div class="Popular-Restaurants-grid wow fadeInRight" data-wow-delay="0.4s">
+					<div class="col-md-3 restaurent-logo">
+						<img src= {{ p.foto.url }} class="img-rounded"  height="150" width="210" />
+					</div>
+					<div class="col-md-3 restaurent-title">
+						<div class="logo-title">
+							<h4> {{ p.nombre }}</h4>
+						</div>
+
+					</div>
+					<div class="col-md-3 restaurent-title">
+                        <h5>{{ p.descripcion }}</h5>
+					</div>
+                    {% if user.is_authenticated %}
+					<div class="col-md-3 buy">
+						<span>{{ p.precio }} €</span>
+						<a class="morebtn hvr-rectangle-in" href="add/{{ p.id }}">Añadir pedido</a>
+					</div>
+                    {% else %}
+                    <div class="col-md-3 buy">
+						<a href="login">Inicia sesión para comprar</a>
+					</div>
+                    {% endif %}
+					<div class="clearfix"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+        {% endfor %}
+	{% else %}
+	 <div class="alert alert-danger">
+	 <p>No hay ningún producto</p>
+	 </div>
+    {% endif %}
+
+{% endblock %}
+
+

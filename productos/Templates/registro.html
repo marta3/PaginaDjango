@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<body>
+<div class="contregis">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Registro</div>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ form|crispy }}
+    {% csrf_token %}
+
+    <button style="margin-left: 25%; margin-bottom: 1%;" class="btn btn-primary">Registrar</button>
+      </form>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
